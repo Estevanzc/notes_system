@@ -1,0 +1,177 @@
+#page_background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+header {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 2px;
+}
+header h1 {
+    margin-left: 25px;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img {
+    height: 100%;
+}
+main {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap: 10px 0px;
+}
+footer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p {
+    color: white;
+    font-weight: 500;
+    font-size: 11pt;
+}
+main>h2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e6e6e6;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+form {
+    width: 25%;
+    height: 450px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 5px;
+    gap: 10px 0px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    border: 2px solid #acacac;
+    background-color: #e6e6e6;
+}
+#email_input, #password_input, #remember_checkbox, nav, #submit_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px 0px;
+}
+#email_input {
+    margin-top: 30px;
+    width: 100%;
+    height: 20%;
+    flex-flow: column;
+}
+#password_input {
+    width: 100%;
+    height: 20%;
+    flex-flow: column;
+}
+#remember_checkbox {
+    width: 100%;
+    height: 35px;
+    justify-content: flex-start;
+    gap: 0px 5px;
+    font-size: 10pt;
+    font-weight: 500;
+}
+#remember_checkbox>input {
+    margin-left: 30px;
+    width: 15px;
+    height: 15px;
+}
+#remember_checkbox>* {
+    cursor: pointer;
+}
+nav {
+    width: 100%;
+    height: 35px;
+    font-size: 10pt;
+    font-weight: 500;
+}
+nav a {
+    font-weight: bold;
+}
+#submit_btn {
+    width: 100%;
+    height: 10%;
+    justify-content: flex-end;
+    padding: 0px 30px;
+}
+#submit_btn button {
+    padding: 5px 25px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-shadow: 1px 1px 5px rgba(45, 45, 45, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #6290CC;
+    transition: all 0.25s ease;
+}
+#submit_btn>button:hover {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    background-color: #67a0ea;
+}
+#submit_btn>button:active {
+    background-color: #6290CC;
+}
+#email_input>label, #password_input>label {
+    margin-left: 35px;
+    align-self: flex-start;
+    font-size: 11pt;
+    font-weight: 500;
+}
+#password {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#password>input {
+    width: 85%;
+    height: 100%;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    outline: none;
+}
+#password>div {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11pt;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+#password>div:hover {
+    background-color: #d0d0d0;
+}
+#login {
+    width: 85%;
+    padding: 5px 10px;
+    outline: none;
+}
+#login, #password {
+    height: 35px;
+    font-size: 9.5pt;
+    background-color: white;
+    border-radius: 5px;
+    border: 1.5px solid #acacac;
+}
