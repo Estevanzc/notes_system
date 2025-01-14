@@ -1,0 +1,275 @@
+#page_background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+header {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 2px;
+}
+header h1 {
+    margin-left: 25px;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img {
+    height: 100%;
+}
+main {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap: 10px 0px;
+}
+footer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p {
+    color: white;
+    font-weight: 500;
+    font-size: 11pt;
+}
+main>h2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e6e6e6;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+main>div {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#profile_simulation {
+    width: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: profileShow 2s forwards;
+    animation-delay: 250ms;
+}
+@keyframes profileShow {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 30%;
+        opacity: 1;
+    }
+}
+#profile {
+    width: 250px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    background-color: #d0d0d0;
+}
+#profile_img {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#profile_img div {
+    width: 55px;
+    height: 55px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../../../uploads/default_profile.png);
+}
+#profile_desc {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column;
+    gap: 5px 0px;
+    overflow: hidden;
+}
+#profile_name {
+    width: 150px;
+    font-size: 11pt;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#profile_date {
+    margin-left: 10px;
+    font-size: 9pt;
+    font-weight: 500;
+    color: #484848;
+}
+form {
+    width: 25%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    border: 2px solid #acacac;
+    background-color: #e6e6e6;
+}
+#email_input, #password_input, #name_input, #level_input, #photo_input, nav, #submit_btn {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap: 5px 0px;
+}
+#name_input {
+    margin-top: 30px;
+}
+#submit_btn {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-flow: row;
+    padding: 0px 30px;
+}
+#submit_btn button {
+    padding: 5px 25px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-shadow: 1px 1px 5px rgba(45, 45, 45, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #6290CC;
+    transition: all 0.25s ease;
+}
+#submit_btn>button:hover {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    background-color: #67a0ea;
+}
+#submit_btn>button:active {
+    background-color: #6290CC;
+}
+label {
+    margin-left: 35px;
+    align-self: flex-start;
+    font-size: 11pt;
+    font-weight: 500;
+}
+#password {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#password>input {
+    width: 85%;
+    height: 33px;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    outline: none;
+}
+#password>div {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11pt;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: all 0.25s ease;
+}
+#password>div:hover {
+    background-color: #d0d0d0;
+}
+#login, #name, #level {
+    width: 85%;
+    padding: 7px 10px;
+    outline: none;
+}
+#login, #password, #name, #level {
+    font-size: 9.5pt;
+    background-color: white;
+    border-radius: 5px;
+    border: 1.5px solid #acacac;
+}
+#login:focus, #name:focus, #level:focus {
+    transition: all 0.25s ease;
+    border-color: rgb(82, 151, 255);
+    box-shadow: 1px 1px 5px rgba(45, 45, 45, 0.5);
+}
+#level {
+    cursor: pointer;
+}
+nav {
+    height: 40px;
+    font-size: 10pt;
+    font-weight: 500;
+}
+nav a {
+    font-weight: bold;
+}
+#photo_input {
+    height: 70px;
+}
+#photo_input>div {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 10px;
+}
+#del_profile_btn {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    padding: 2.5px 7px;
+    font-size: 12pt;
+    border-radius: 5px;
+    color: red;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+#del_profile_btn:hover {
+    box-shadow: 1px 1px 5px rgba(45, 45, 45, 0.5);
+    background-color: #acacac;
+}
+#del_profile_btn:active {
+    background-color: #d0d0d0;
+}

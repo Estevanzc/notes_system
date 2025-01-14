@@ -9,12 +9,12 @@ abstract class Controller {
             session_regenerate_id();
         }
         //echo ("<script>console.log($obriga_login)</script>");
-        if ($obriga_login && !isset($_SESSION["usuario"])) {
+        if ($obriga_login && !isset($_SESSION["user"])) {
             $this->redirect("login.php");
             exit();
         }
         if ($restricted) {
-            if ($_SESSION["usuario"]->getNivel() < 4) {
+            if ($_SESSION["user"]->getLevel() < 2) {
                 $this->redirect("index.php");
                 exit();
             }

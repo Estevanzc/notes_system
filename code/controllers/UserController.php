@@ -27,7 +27,7 @@ final class UserController extends Controller {
             $user = new UserVO();
         }
 
-        $this->loadView("userForm", [
+        $this->loadView(($_GET["page_type"] == 0 ? "userForm" : "userCreate"), [
             "user" => $user
         ]);
     }

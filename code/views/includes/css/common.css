@@ -12,16 +12,18 @@
     left: 0;
     width: 100vw;
     min-height: 100vh;
+    overflow: auto;
     background-image: radial-gradient(circle, #020024, #090979, #227AE6);
-    animation: gradientAnimate 120s infinite;
-    background-size: 400% 400%;
+    /*animation: gradientAnimate 120s infinite;*/
+    background-size: 200% 200%;
+    transition: all 0.150s ease;
 }
 @keyframes gradientAnimate {
-    0% {background-position: top 100%  right 0%}
-    25% {background-position: top 100%  right 90%}
-    50% {background-position: top 0%  right 90%}
-    75% {background-position: top 0%  right 0%}
-    100% {background-position: top 100%  right 0%}
+    0% {background-position: top 100% right 0%}
+    25% {background-position: top 100% right 90%}
+    50% {background-position: top 0% right 90%}
+    75% {background-position: top 0% right 0%}
+    100% {background-position: top 100% right 0%}
 }
 .input_err {
     opacity: 0;

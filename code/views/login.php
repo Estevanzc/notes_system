@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="views/includes/css/login.css">
     <link rel="icon" href="uploads/logo_no_text.png">
 </head>
-<body>
+<body onmousemove="cursor_locate(event)">
     <div id="page_background">
         <header>
             <h1><img src="uploads/logo_text1.png" alt=""></h1>
@@ -26,10 +26,10 @@
                     <p class="input_err">asdasd</p>
                 </div>
                 <div id="password_input">
-                    <label for="password">Insira sua senha</label>
+                    <label for="password_ipt">Insira sua senha</label>
                     <div id="password">
-                        <input type="password" name="password">
-                        <div id="pass_btn"><i class="fa-solid fa-eye-slash"></i></div>
+                        <input type="password" name="password" id="password_ipt">
+                        <div id="pass_btn" onclick="pass_visibility(this)"><i class="fa-solid fa-eye-slash"></i></div>
                     </div>
                     <p class="input_err">asdadasads</p>
                 </div>
@@ -38,7 +38,7 @@
                     <label for="remember">Confie neste browser</label>
                 </div>
                 <nav>
-                    <div>Não possui uma conta ? <a href="usuario.php">Crie uma</a></div>
+                    <div>Não possui uma conta ? <a href="user.php?page_type=1">Crie uma</a></div>
                 </nav>
                 <div id="submit_btn">
                     <button type="submit">Entrar</button>
@@ -49,5 +49,7 @@
             <p>© 2024 — 2024, Estevan.com, Inc. ou suas afiliadas</p>
         </footer>
     </div>
+    <script src="views/includes/js/login.js"></script>
+    <script src="views/includes/js/cursor_interaction.js"></script>
 </body>
 </html>
