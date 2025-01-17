@@ -8,12 +8,11 @@ use Model\VO\UserVO;
 final class UserController extends Controller {
 
     public function list() {
+        $this->loadView("usersList", []);
+    }
+    public function userList() {
         $model = new UserModel();
         $data = $model->selectAll(new UserVO());
-
-        $this->loadView("usersList", [
-            "users" => $data
-        ]);
     }
 
     public function form() {

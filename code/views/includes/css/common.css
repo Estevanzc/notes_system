@@ -1,3 +1,10 @@
+:root {
+    --white-background: #d0d0d0;
+    --white-text: #e6e6e6;
+    --shadow-color: #2D3033;
+    --light-button: #466580;
+    --dark-button: #3D4A55;
+}
 * {
     top: 0;
     left: 0;
@@ -6,15 +13,17 @@
     font-family: "Noto Sans";
     box-sizing: border-box;
 }
+body {
+    overflow: auto;
+}
 #page_background {
+    z-index: 0;
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     min-height: 100vh;
-    overflow: auto;
     background-image: radial-gradient(circle, #020024, #090979, #227AE6);
-    /*animation: gradientAnimate 120s infinite;*/
     background-size: 200% 200%;
     transition: all 0.150s ease;
 }
@@ -31,4 +40,8 @@
     font-size: 9pt;
     font-weight: bold;
     transition: all 0.25s ease;
+}
+a {
+    text-decoration: none;
+    color: black;
 }

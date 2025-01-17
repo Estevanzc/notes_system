@@ -7,14 +7,35 @@ use Model\VO\NoteVO;
 final class NoteModel extends Model {
 
     public function selectAll($vo) {
+        $filter = json_decode(urldecode($_GET["filter"]), true);
         $db = new Connection();
         $query = "SELECT * FROM notes";
+        if (!empty($filter)) {
+            $string = ($filter[0] != "" ? " (LOWER(title) LIKE LOWER(\"%".$filter[0]."%\") or LOWER(description) LIKE LOWER(\"%".$filter[0]."%\"))" : "");
+            $string1 = "";
+            if ($filter[1] != 0) {
+                if ($filter[1] == 1) {
+                    $string1 = "datediff(remind_date, curdate()) < 7";
+                } else {
+                    $string1 = "datediff(remind_date, curdate()) < 0";
+                }
+            }
+            $string2 = "ORDER BY create_date ".($filter[2] == 0 ? "ASC" : "DESC");
+            $query .= ($string != "" || $string1 != "" ? " WHERE " : " ").$string.($string != "" && $string1 != "" ? " AND " : "").$string1." ".($string != "" || $string1 != "" ? " AND" : " WHERE")." user_id = ".$_SESSION["user"]->getId().($string2 != "" ? " " : "").$string2;
+        }
         $data = $db->select($query);
 
         $arrayDados = [];
 
         foreach($data as $row) {
-            $vo = new NoteVO($row["id"], $row["title"], $row["description"],$row["create_date"],$row["remind_date"], $row["user_id"]);
+            $vo = [
+                "id" => $row["id"],
+                "title" => $row["title"],
+                "description" => $row["description"],
+                "create_date" => $row["create_date"],
+                "remind_date" => $row["remind_date"],
+                "user_id" => $row["user_id"]
+            ];
             array_push($arrayDados, $vo);
         }
 

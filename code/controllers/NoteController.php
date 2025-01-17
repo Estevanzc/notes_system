@@ -8,12 +8,12 @@ use Model\VO\NoteVO;
 final class NoteController extends Controller {
 
     public function list() {
+        $this->loadView("notesList", []);
+    }
+    public function filter_list() {
         $model = new NoteModel();
         $data = $model->selectAll(new NoteVO());
-
-        $this->loadView("notesList", [
-            "notes" => $data
-        ]);
+        return $data;
     }
 
     public function form() {

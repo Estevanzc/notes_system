@@ -34,7 +34,7 @@ CREATE TABLE `notes` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,6 +43,7 @@ CREATE TABLE `notes` (
 
 LOCK TABLES `notes` WRITE;
 /*!40000 ALTER TABLE `notes` DISABLE KEYS */;
+INSERT INTO `notes` VALUES (1,'Meeting Notes','Notes from the meeting with the project team.','2025-01-14',NULL,1),(2,'Grocery List','Buy milk, eggs, bread, and fruits.','2025-01-14',NULL,1),(3,'Workout Plan','Plan for the week: Monday - Cardio, Wednesday - Strength Training.','2025-01-14',NULL,1),(4,'Book Recommendations','1. The Great Gatsby 2. To Kill a Mockingbird 3. 1984','2025-01-14',NULL,1),(5,'Travel Itinerary','Trip to the mountains: Departure on 2025-02-01, return on 2025-02-05.','2025-01-14',NULL,1);
 /*!40000 ALTER TABLE `notes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +67,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `password` (`password`),
   UNIQUE KEY `login_2` (`login`),
   UNIQUE KEY `pass` (`password`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,4 +89,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-11 20:45:51
+-- Dump completed on 2025-01-14 15:38:18

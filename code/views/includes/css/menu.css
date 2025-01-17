@@ -1,0 +1,262 @@
+#page_background {
+    width: 100vw;
+    min-height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    animation: gradientAnimate 120s infinite;
+}
+menu {
+    z-index: 2;
+    position: sticky;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgba(65, 121, 170);
+    transition: all 0.25s ease;
+}
+#logo, nav {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logo a {
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logo a img {
+    height: 100%;
+}
+nav {
+    gap: 0px 20px;
+}
+#aside_btn {
+    z-index: 3;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13pt;
+    filter: drop-shadow(1px 1px 5px rgba(45, 48, 51, 0.5));
+    border: 2px solid #9ab2c1;
+    background-color: #AEC9D9;
+    transition: all 0.25s ease;
+}
+#aside_btn:hover {
+    filter: drop-shadow(1px 1px 5px #2D3033);
+    background-color: #91a9b8;
+}
+#aside_btn:active {
+    background-color: #AEC9D9;
+}
+#profile_btn {
+    width: 175px;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 2px solid #91a9b8;
+    filter: drop-shadow(1px 1px 5px rgba(45, 48, 51, 0.5));
+    cursor: pointer;
+    background-color: #AEC9D9;
+    transition: all 0.25s ease;
+}
+#profile_btn i {
+    transition: all 0.25s ease;
+}
+#profile_btn:hover {
+    background-color: #91a9b8;
+}
+#profile_img {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#profile_img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    box-shadow: 1px 1px 5px rgba(45, 48, 51, 0.5);
+}
+#profile_desc { 
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px 15px;
+    padding-left: 10px;
+}
+#profile_desc p {
+    font-size: 11pt;
+    font-weight: 500;
+}
+#profile_desc div {
+    font-size: 13pt;
+}
+#profile_menu {
+    position: absolute;
+    z-index: 2;
+    width: 175px;
+    height: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 5px;
+    border: 2px solid #91a9b8;
+    filter: drop-shadow(1px 1px 5px rgba(45, 48, 51, 0.5));
+    overflow: hidden;
+    background-color: #AEC9D9;
+    transition: all 0.25s ease;
+}
+@keyframes open_menu {
+    0% {height: 0;}
+    100% {height: 90px;}
+}
+@keyframes close_menu {
+    0% {height: 90px;}
+    100% {height: 0;}
+}
+.profile_nav {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.profile_nav:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.profile_nav>div:nth-child(1) {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile_nav>div:nth-child(2) {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+aside {
+    top: 0;
+    position: fixed;
+    z-index: 2;
+    width: 0vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column;
+    overflow: hidden;
+    filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.5));
+    background-color: #AEC9D9;
+    transition: all 0.25s ease;
+}
+#aside_nav {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+}
+#aside_opt {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.nav_opt {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.nav_opt:hover, #config_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: #bcdbec;
+}
+.nav_opt:nth-child(1):hover {
+    filter: none;
+    background-color: transparent;
+}
+.nav_opt>div:nth-child(1) {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav_opt>div:nth-child(2) {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.title_side {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#aside_title {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11pt;
+    font-weight: bold;
+    white-space: nowrap;
+}
+#close_aside_btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #9ab2c1;
+    transition: all 0.25s ease;
+}
+#close_aside_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(255, 80, 80);
+}
+#close_aside_btn:active {
+    background-color: rgb(234, 74, 74);
+}
