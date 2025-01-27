@@ -48,3 +48,173 @@ main {
     justify-content: center;
     align-items: center;
 }
+#user_account {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    color: white;
+    border-radius: 5px;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgba(70, 101, 128, 0.8);
+}
+#personal_data {
+    width: 100%;
+    height: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+#personal_data>div:nth-child(1) {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#personal_data>div:nth-child(2) {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: column;
+    padding: 15px 5px;
+}
+#account_img {
+    height: 95%;
+    border-radius: 10px;
+    border: 2px solid rgba(174, 201, 217, 0.5);
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+}
+#account_name {
+    font-size: 15pt;
+}
+#account_login {
+    font-size: 9pt;
+}
+#account_navigate {
+    width: 100%;
+    padding: 10px 40px 15px 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0px 10px;
+}
+#account_navigate>* {
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 10px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(70, 101, 128);
+    transition: all 0.25s ease;
+}
+#edit_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(43, 114, 177);
+}
+#delete_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(177, 43, 43);
+}
+#edit_btn:active {
+    background-color: rgb(54, 142, 218);
+}
+#delete_btn:active {
+    background-color: rgb(213, 54, 54);
+}
+#account_data {
+    width: 100%;
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 11pt;
+}
+#description {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column;
+    gap: 10px 0px;
+    padding: 5px 40px 20px 40px;
+    text-indent: 30px;
+}
+#description>p:nth-child(2) {
+    font-size: 10pt;
+}
+#account_level {
+    font-size: 11pt;
+}
+#delete_screen {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    position: fixed;
+    padding: 10px 20px;
+    opacity: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 5px;
+    color: white;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(70, 101, 128);
+}
+@keyframes delete_screen_open {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes delete_screen_close {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+#delete_screen>* {
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#screen_navigate {
+    gap: 0px 20px;
+}
+#delete_screen>*:nth-child(1) {
+    font-size: 11pt;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+#screen_navigate>* {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: rgb(97, 139, 175);
+    transition: all 0.25s ease;
+}
+#cancel_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(255, 80, 80);
+}
+#cancel_btn:active {
+    background-color: rgb(251, 119, 119);
+}
+#confirm_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(68, 211, 68);
+}
+#confirm_btn:active {
+    background-color: rgb(115, 245, 115);
+}
+

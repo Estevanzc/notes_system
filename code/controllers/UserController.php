@@ -10,9 +10,20 @@ final class UserController extends Controller {
     public function list() {
         $this->loadView("usersList", []);
     }
+    public function list_one() {
+        $model = new UserModel();
+        $user = $model->selectOne(new UserVO($_GET["id"]));
+        if ($_SESSION["user"]->getLevel() < 2 && $_SESSION["user"]->getId() != $user->getId()) {
+            $this->redirect("index.php");
+            exit();
+        }
+        $this->loadView("userDetail", [
+            "user" => $user,
+        ]);
+    }
     public function userList() {
         $model = new UserModel();
-        $data = $model->selectAll(new UserVO());
+        return $model->selectAll(new UserVO());
     }
 
     public function form() {
@@ -35,7 +46,7 @@ final class UserController extends Controller {
         $id = $_POST["id"];
         $model = new UserModel();
         $nome_arquivo = $this->uploadFile($_FILES["photo"], (empty($id) ? "" : $model->selectOne(new UserVO($id))->getPhoto()));
-        $vo = new UserVO($id, $_POST["login"], $_POST["password"], $_POST["name"], $_POST["entry_date"], $_POST["level"], $nome_arquivo);
+        $vo = new UserVO($id, $_POST["login"], $_POST["password"], $_POST["name"], $_POST["entry_date"], $_POST["description"], $_POST["level"], $nome_arquivo);
 
         if(empty($id)) {
             $result = $model->insert($vo);

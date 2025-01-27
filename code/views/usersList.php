@@ -1,33 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Acadêmico</title>
+<?php require_once("views/includes/html/head.html");?>
+    <link rel="stylesheet" href="views/includes/css/usersList.css">
 </head>
-<body>
-    <?php require_once("views/includes/menu.php");?>
-    <h1>Sistema Acadêmico - Usuarios</h1>
-    <a href="usuario.php">Incluir novo</a>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Login</th>
-            <th>Nivel</th>
-            <th>Ações</th>
-        </tr>
-        <?php foreach($usuarios as $usuario) { ?>
-            <tr>
-                <td><?php echo $usuario->getId(); ?></td>
-                <td><?php echo $usuario->getLogin(); ?></td>
-                <td><?php echo $usuario->getNivel(); ?></td>
-                <td>
-                    <a href="usuario.php?id=<?php echo $usuario->getId(); ?>">Editar</a>
-                    <br>
-                    <a href="excluirUsuario.php?id=<?php echo $usuario->getId(); ?>">Excluir</a>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
+<body onscroll="scroll_event(this)">
+    <div id="page_background">
+        <?php require_once("views/includes/html/menu.php");?>
+        <section id="users_list">
+            <h2 id="page_title">Lista de Usuários</h2>
+            <main>
+                <div id="loading_screen">
+                    <img src="uploads/loading_icon.gif" class="screen_icon" alt="">
+                    <h3 class="screen_title">Loading ...</h3>
+                </div>
+            </main>
+        </section>
+    </div>
+    <section id="user_popup" onmouseenter="mouse_enter(this)" onmouseleave="mouse_leave(this)">
+        <h4>Detalhes:</h4>
+        <div id="user_data">
+            <p><strong>Nome:</strong> Estevan Zimeramnn</p>
+            <p><strong>Login:</strong> estevan.zimermann@gmail.com</p>
+            <p><strong>Level:</strong> Admin</p>
+            <p>Desde 26, fev de 2008</p>
+        </div>
+        <div id="data_nav">
+        </div>
+    </section>
+    <?php require_once("views/includes/html/footer.html");?>
+    <?php
+    if ($_SESSION["user"]->getLevel() == 2) {
+        require_once("views/includes/html/aside.html");
+    }
+    ?>
+    <?php require_once("views/includes/html/profile_dropdown.php");?>
+    <script src="views/includes/js/usersList.js"></script>
+    <script src="views/includes/js/menu.js"></script>
+    <script src="views/includes/js/scroll_event.js"></script>
 </body>
 </html>
