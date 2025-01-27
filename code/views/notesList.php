@@ -1,4 +1,6 @@
 <?php require_once("views/includes/html/head.html");?>
+    <link rel="stylesheet" href="views/includes/css/notesList.css">
+</head>
 <body onscroll="scroll_event(this)">
     <div id="page_background">
         <?php require_once("views/includes/html/menu.php");?>
@@ -69,6 +71,7 @@
     <?php require_once("views/includes/html/profile_dropdown.php");?>
     <script src="views/includes/js/notesList.js"></script>
     <script src="views/includes/js/menu.js"></script>
+    <script src="views/includes/js/scroll_event.js"></script>
     <script src="views/includes/js/data_taker.js"></script>
 </body>
 </html>

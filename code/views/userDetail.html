@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="includes/css/common.css">
     <link rel="stylesheet" href="includes/css/menu.css">
-    <link rel="stylesheet" href="includes/css/notesList.css">
+    <link rel="stylesheet" href="includes/css/userDetail.css">
     <link rel="icon" href="../uploads/logo_no_text.png">
 </head>
 <body onscroll="scroll_event(this)">
@@ -36,65 +36,21 @@
                 </div>
             </nav>
         </menu>
-        <section id="notes_list">
-            <h2 id="page_title">Suas Notas</h2>
-            <div id="list_menu">
-                <div onclick="filter_open(this)" id="list_filter_btn">
-                    <i class="fa-solid fa-filter"></i>
-                    <p>Filtro</p>
+        <section id="user_detail">
+            <div id="page_title">
+                <div>
+                    <a href="index.php" id="return_btn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <h3>Voltar</h3>
+                    </a>
                 </div>
-                <div id="list_style_btn">
-                    <div onclick="list_style(this)" data-style_type="notes_summary"><i class="fa-solid fa-table-cells-large"></i></div>
-                    <div onclick="list_style(this)" data-style_type="notes_details"><i class="fa-solid fa-list"></i></div>
-                </div>
-                <a href="note.php" id="list_add">
-                    <i class="fa-regular fa-square-plus"></i>
-                    <p>Adicionar uma nota</p>
-                </a>
+                <h2>Sua conta</h2>
+                <div></div>
             </div>
-            <main class="notes_summary">
-                <div id="loading_screen">
-                    <img src="../uploads/loading_icon.gif" class="screen_icon" alt="">
-                    <h3 class="screen_title">Loading ...</h3>
-                </div>
-                <div id="empty_screen">
-                    <img src="../uploads/loading_icon.gif" class="screen_icon" alt="">
-                    <h3 class="screen_title">Nenhum arquivo encontrado</h3>
-                </div>
+            <main>
             </main>
         </section>
     </div>
-    <section id="filter_window">
-        <div id="window_title">
-            <h3>Filtros</h3>
-            <div id="close_window_btn" onclick="filter_close(this)"><i class="fa-solid fa-xmark"></i></div>
-        </div>
-        <div id="search_input" class="search_option">
-            <h5 class="search_title">Pesquise por palavras</h5>
-            <input type="text">
-        </div>
-        <div id="select_input">
-            <div id="create_select" class="search_option">
-                <h5 class="search_title">Ordem de criação</h5>
-                <select>
-                    <option value="0">Mais recentes</option>
-                    <option value="1">Mais antigos</option>
-                </select>
-            </div>
-            <div id="remind_select" class="search_option">
-                <h5 class="search_title">Ordem de lembrete</h5>
-                <select>
-                    <option value="0" selected>Nenhuma</option>
-                    <option value="1">Datas próximas</option>
-                    <option value="2">Datas passadas</option>
-                </select>
-            </div>
-        </div>
-        <div id="filter_buttons">
-            <button id="filter_apply" onclick="filter_close(this)">Aplicar</button>
-        </div>
-    </section>
-    <footer></footer>
     <aside onclick="aside_open(this)">
         <div id="aside_nav">
             <div class="nav_opt">
@@ -130,7 +86,8 @@
             <div>Logout</div>
         </a>
     </div>
-    <script src="includes/js/notesList.js"></script>
+    <script src="includes/js/userDetail.js"></script>
     <script src="includes/js/menu.js"></script>
+    <script src="includes/js/scroll_event.js"></script>
 </body>
 </html>

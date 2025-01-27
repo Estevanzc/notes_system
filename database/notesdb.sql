@@ -43,7 +43,7 @@ CREATE TABLE `notes` (
 
 LOCK TABLES `notes` WRITE;
 /*!40000 ALTER TABLE `notes` DISABLE KEYS */;
-INSERT INTO `notes` VALUES (1,'Meeting Notes','Notes from the meeting with the project team.','2025-01-14',NULL,1),(2,'Grocery List','Buy milk, eggs, bread, and fruits.','2025-01-14',NULL,1),(3,'Workout Plan','Plan for the week: Monday - Cardio, Wednesday - Strength Training.','2025-01-14',NULL,1),(4,'Book Recommendations','1. The Great Gatsby 2. To Kill a Mockingbird 3. 1984','2025-01-14',NULL,1),(5,'Travel Itinerary','Trip to the mountains: Departure on 2025-02-01, return on 2025-02-05.','2025-01-14',NULL,1);
+INSERT INTO `notes` VALUES (1,'Meeting Notes','Notes from the meeting with the project team.','2025-01-14','2025-01-14',1),(2,'Grocery List','Buy milk, eggs, bread, and fruits.','2023-01-01','2023-01-01',1),(3,'Workout Plan','Plan for the week: Monday - Cardio, Wednesday - Strength Training.','2025-01-14',NULL,1),(4,'Book Recommendations','1. The Great Gatsby 2. To Kill a Mockingbird 3. 1984','2025-01-14',NULL,1),(5,'Travel Itinerary','Trip to the mountains: Departure on 2025-02-01, return on 2025-02-05.','2025-01-14',NULL,1);
 /*!40000 ALTER TABLE `notes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,6 +60,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `entry_date` date NOT NULL,
+  `description` text,
   `level` int DEFAULT (1),
   `photo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -67,7 +68,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `password` (`password`),
   UNIQUE KEY `login_2` (`login`),
   UNIQUE KEY `pass` (`password`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,7 +77,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'estevan.zimermann@gmail.com','21232f297a57a5a743894a0e4a801fc3','Estevan','2025-01-11',2,NULL),(2,'estevan2.zimermann@gmail.com','ee11cbb19052e40b07aac0ca060c23ee','Estevan 2','2025-01-11',1,NULL);
+INSERT INTO `users` VALUES (1,'estevan.zimermann@gmail.com','21232f297a57a5a743894a0e4a801fc3','Estevan','2025-01-11',NULL,2,NULL),(2,'estevan2.zimermann@gmail.com','ee11cbb19052e40b07aac0ca060c23ee','Estevan 2','2025-01-11',NULL,1,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -89,4 +90,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-14 15:38:18
+-- Dump completed on 2025-01-27 14:48:34

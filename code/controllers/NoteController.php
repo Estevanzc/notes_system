@@ -19,17 +19,22 @@ final class NoteController extends Controller {
     public function form() {
         $id = $_GET["id"] ?? 0;
 
+        $model = new NoteModel();
         if(!empty($id)) {
-            $model = new NoteModel();
             $vo = new NoteVO($id);
             $note = $model->selectOne($vo);
         } else {
             $note = new NoteVO();
         }
-
-        $this->loadView("noteForm", [
-            "note" => $note
-        ]);
+        $notes_num = count($model->selectAll([]));
+        if (!empty($id) && $note->getUser_id() == $_SESSION["user"]->getId() || empty($id)) {
+            $this->loadView("noteForm", [
+                "note" => $note,
+                "notes_num" => $notes_num
+            ]);
+        } else if (!empty($id) && $note->getUser_id() != $_SESSION["user"]->getId()) {
+            $this->redirect("index.php");
+        }
     }
 
     public function save() {

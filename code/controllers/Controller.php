@@ -45,7 +45,7 @@ abstract class Controller {
     public function loadView($view, $data = []) {
         extract($data);/*
         echo("<pre>");
-        print_r($estudante);
+        print_r($data);
         die;*/
         include("views/" . $view . ".php");
     }

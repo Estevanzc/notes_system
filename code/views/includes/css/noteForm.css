@@ -1,0 +1,265 @@
+#note_form {
+    width: 100%;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+}
+#page_title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px 25px 20px;
+}
+#page_title>div {
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+#return_btn {
+    padding: 5px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 10px;
+    border-radius: 5px;
+    color: white;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgba(174, 201, 217, 0.5);
+    cursor: pointer;
+    border: 2px solid #869fae;
+    transition: all 0.25s ease;
+}
+#return_btn:hover {
+    background-color: #AEC9D9;
+}
+#return_btn:active {
+    background-color: #89afc7;
+}
+#return_btn>h3 {
+    font-size: 11pt;
+}
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    width: 50%;
+    border: 2px solid white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    border: 2px solid #acacac;
+    background-color: #e6e6e6;
+}
+#title_input {
+    padding-top: 15px;
+}
+.input_subpart {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap: 5px 0px;
+}
+.input_subpart>div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0px;
+}
+.input_subpart>label {
+    margin-left: 45px;
+    align-self: flex-start;
+}
+.input_subpart label {
+    font-size: 11pt;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+#remind_checkbox {
+    display: none;
+}
+.input_subpart>*:nth-child(2) {
+    width: 90%;
+    padding: 7px 10px;
+    font-size: 9.5pt;
+    border-radius: 5px;
+    border: 1.5px solid #acacac;
+    background-color: white;
+    transition: all 0.25s ease;
+    outline: none;
+}
+.input_subpart>*:nth-child(2):focus {
+    border-color: rgb(82, 151, 255);
+    box-shadow: 1px 1px 5px rgba(45, 45, 45, 0.5);
+}
+.input_subpart textarea {
+    height: 200px;
+}
+#note_date label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 10px;
+    cursor: pointer;
+}
+#toggle_switch {
+    width: 75px;
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0px 1.5px;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.1));
+    border: 2px solid #acacac;
+    background-color: white;
+}
+#toggle_switch div {
+    width: 22.5px;
+    height: 22.5px;
+    border-radius: 100%;
+    background-color: #acacac;
+    transition: all 0.25s ease-in-out;
+}
+.toggle {
+    border-color: rgba(65, 121, 170) !important;
+}
+.toggle div {
+    margin-left: calc(75px - 1.5px - 22.5px - 5px) !important;
+    background-color: rgba(65, 121, 170) !important;
+}
+#note_date {
+    justify-content: space-between;
+    padding: 0px 60px;
+    flex-flow: row;
+}
+#remind_date {
+    width: 30%;
+    display: none;
+    transition: all 0.25s ease;
+}
+.visible {
+    display: inline-block !important;
+}
+#form_navigate {
+    width: 100%;
+    padding: 12.5px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#submit_btn {
+    padding: 7px 25px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-shadow: 1px 1px 5px rgba(45, 45, 45, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #6290CC;
+    transition: all 0.25s ease;
+}
+#delete_btn {
+    padding: 7px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px 10px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-shadow: 1px 1px 5px rgba(45, 45, 45, 0.5);
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(255, 80, 80, 0.5);
+    transition: all 0.25s ease;
+}
+#delete_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(255, 80, 80);
+}
+#delete_btn:active {
+    background-color: rgb(255, 108, 108);
+}
+#submit_btn:hover {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    background-color: #67a0ea;
+}
+#submit_btn:active {
+    background-color: #6290CC;
+}
+#delete_screen {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    position: fixed;
+    padding: 10px 20px;
+    opacity: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    border-radius: 5px;
+    color: white;
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: #6290CC;
+}
+@keyframes delete_screen_open {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@keyframes delete_screen_close {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+#delete_screen>* {
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#screen_navigate {
+    gap: 0px 20px;
+}
+#delete_screen>*:nth-child(1) {
+    font-size: 11pt;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+#screen_navigate>* {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #6fa0df;
+    transition: all 0.25s ease;
+}
+#cancel_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(255, 80, 80);
+}
+#cancel_btn:active {
+    background-color: rgb(251, 119, 119);
+}
+#confirm_btn:hover {
+    filter: drop-shadow(1px 1px 5px rgba(0,0,0,0.5));
+    background-color: rgb(68, 211, 68);
+}
+#confirm_btn:active {
+    background-color: rgb(115, 245, 115);
+}

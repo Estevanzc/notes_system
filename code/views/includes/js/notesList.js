@@ -18,10 +18,6 @@ function remove_main_child() {
         main.removeChild(main.children[2])
     }
 }
-function scroll_event(element) {
-    console.log(window.scrollY);
-    scroll_value = Number(window.scrollY)
-}
 function list_style(element) {
     main.className = element.dataset.style_type
     element.style.backgroundColor = "rgb(174, 201, 217)"
@@ -41,7 +37,7 @@ async function filter_close(element) {
         var remind_date = search_option[2].children[1].value
         var create_date = search_option[1].children[1].value
         remove_main_child()
-        console.log(`http://localhost/notes_system/code/data_taker.php?request_type=1&filter=${encodeURIComponent(JSON.stringify([string.replace(/\s+/g, '') == "" ? "" : string, Number(remind_date), Number(create_date)]))}`);
+        //console.log(`http://localhost/notes_system/code/data_taker.php?request_type=1&filter=${encodeURIComponent(JSON.stringify([string.replace(/\s+/g, '') == "" ? "" : string, Number(remind_date), Number(create_date)]))}`);
         notes_data = await data_taker(1, [string.replace(/\s+/g, '') == "" ? "" : string, Number(remind_date), Number(create_date)])
         notes_creater(notes_data)
         if (Number(notes_data.length) == 0) {

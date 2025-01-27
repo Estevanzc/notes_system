@@ -7,7 +7,7 @@ use Model\VO\NoteVO;
 final class NoteModel extends Model {
 
     public function selectAll($vo) {
-        $filter = json_decode(urldecode($_GET["filter"]), true);
+        $filter = empty($_GET["filter"]) ? "" : json_decode(urldecode($_GET["filter"]), true);
         $db = new Connection();
         $query = "SELECT * FROM notes";
         if (!empty($filter)) {
