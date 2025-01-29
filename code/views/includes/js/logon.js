@@ -57,8 +57,8 @@ function change_name(element) {
 }
 const date = new Date()
 var day = date.getDate()
-var month = date.getMonth()
+var month = date.getMonth() + 1
 var year = date.getFullYear()
-var month_name = ["jan","fev","mar","abr","mai","jun","jul","ago","set","oct","nov","dec"][month]
-entry_date.value = `${year}-${month + 1}-${day}`
+var month_name = ["jan","fev","mar","abr","mai","jun","jul","ago","set","oct","nov","dec"][month-1]
+entry_date.value = `${year}-${month < 10 ? "0" + month : month}-${day < 10 ? "0" + day : day}`
 profile_date.innerHTML = `Desde ${day}, ${month_name} de ${year}`

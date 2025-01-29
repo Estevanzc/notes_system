@@ -1,4 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
+    <title>Notes System | lembre mais fácilmente</title>
     <link rel="stylesheet" href="views/includes/css/notesList.css">
 </head>
 <body onscroll="scroll_event(this)">
@@ -31,6 +32,7 @@
                 </div>
             </main>
         </section>
+        <?php require_once("views/includes/html/footer.html");?>
     </div>
     <section id="filter_window">
         <div id="window_title">
@@ -62,7 +64,6 @@
             <button id="filter_apply" onclick="filter_close(this)">Aplicar</button>
         </div>
     </section>
-    <?php require_once("views/includes/html/footer.html");?>
     <?php
     if ($_SESSION["user"]->getLevel() == 2) {
         require_once("views/includes/html/aside.html");

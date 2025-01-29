@@ -47,10 +47,6 @@ final class UserController extends Controller {
     }
 
     public function save() {
-        if ($_SESSION["user"]->getLevel() < 2 && $_SESSION["user"]->getId() != $_POST["id"]) {
-            $this->redirect("index.php");
-            exit();
-        }
         $id = $_POST["id"];
         $model = new UserModel();
         $nome_arquivo = 0;
@@ -63,6 +59,10 @@ final class UserController extends Controller {
         if(empty($id)) {
             $result = $model->insert($vo);
         } else {
+            if ($_SESSION["user"]->getLevel() < 2 && $_SESSION["user"]->getId() != $_POST["id"] || !isset($_SESSION["user"])) {
+                $this->redirect("index.php");
+                exit();
+            }
             $result = $model->update($vo);
         }
 

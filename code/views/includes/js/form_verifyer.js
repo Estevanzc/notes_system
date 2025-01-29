@@ -28,9 +28,9 @@ function logon_verifyer() {
         login.parentNode.children[2].innerHTML = "Login já em uso"
         login.parentNode.children[2].style.opacity = 1
         submit_value = false
-    } else if (login.value.replace(/ /g, "") == "") {
+    } else if (Number(login.value.replace(/ /g, "").length) < 11 || login.value.replace(/ /g, "").match(/@gmail.com/g) == "") {
         login.style.borderColor = "rgb(205, 68, 68) !important"
-        login.parentNode.children[2].innerHTML = "Campo obrigatório vazio"
+        login.parentNode.children[2].innerHTML = "Campo obrigatório incorreto"
         login.parentNode.children[2].style.opacity = 1
         submit_value = false
     } else {

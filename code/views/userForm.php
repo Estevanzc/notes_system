@@ -1,4 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
+    <title>Edite a <?php echo($user->getId() == $_SESSION["user"]->getId() ? "sua " : "")?>conta</title>
     <link rel="stylesheet" href="views/includes/css/userForm.css">
 </head>
 <body onscroll="scroll_event(this)">
@@ -91,8 +92,8 @@
                 </form>
             </main>
         </section>
+        <?php require_once("views/includes/html/footer.html");?>
     </div>
-    <?php require_once("views/includes/html/footer.html");?>
     <?php
     if ($_SESSION["user"]->getLevel() == 2) {
         require_once("views/includes/html/aside.html");

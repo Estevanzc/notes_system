@@ -1,4 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
+    <title><?php echo($isEmpty ? "Crie" : "Edite")?> sua nota - Notes System</title>
     <link rel="stylesheet" href="views/includes/css/noteForm.css">
 </head>
 <body onscroll="scroll_event(this)">
@@ -63,6 +64,7 @@
                 </form>
             </main>
         </section>
+        <?php require_once("views/includes/html/footer.html");?>
     </div>
     <?php
     if (!$isEmpty) {
@@ -79,7 +81,6 @@
         ");
     }
     ?>
-    <?php require_once("views/includes/html/footer.html");?>
     <?php
     if ($_SESSION["user"]->getLevel() == 2) {
         require_once("views/includes/html/aside.html");

@@ -1,4 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
+    <title>Informações da <?php echo($user->getLevel() == $_SESSION["user"]->getLevel() ? "sua " : "");?>conta</title>
     <link rel="stylesheet" href="views/includes/css/userDetail.css">
 </head>
 <body onscroll="scroll_event(this)">
@@ -49,6 +50,7 @@
                 </div>
             </main>
         </section>
+        <?php require_once("views/includes/html/footer.html");?>
     </div>
     <section id="delete_screen">
         <div>
@@ -59,7 +61,6 @@
             <a href="userDelete.php?id=<?php echo($user->getId())?>" id="confirm_btn">Confirmar</a>
         </div>
     </section>
-    <?php require_once("views/includes/html/footer.html");?>
     <?php
     if ($_SESSION["user"]->getLevel() == 2) {
         require_once("views/includes/html/aside.html");

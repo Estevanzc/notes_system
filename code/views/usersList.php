@@ -1,4 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
+    <title>Lista de Usuários</title>
     <link rel="stylesheet" href="views/includes/css/usersList.css">
 </head>
 <body onscroll="scroll_event(this)">
@@ -13,6 +14,7 @@
                 </div>
             </main>
         </section>
+        <?php require_once("views/includes/html/footer.html");?>
     </div>
     <section id="user_popup" onmouseenter="mouse_enter(this)" onmouseleave="mouse_leave(this)">
         <h4>Detalhes:</h4>
@@ -25,7 +27,6 @@
         <div id="data_nav">
         </div>
     </section>
-    <?php require_once("views/includes/html/footer.html");?>
     <?php
     if ($_SESSION["user"]->getLevel() == 2) {
         require_once("views/includes/html/aside.html");

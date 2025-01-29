@@ -31,18 +31,6 @@ main {
     flex-flow: column;
     gap: 10px 0px;
 }
-footer {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-footer p {
-    color: white;
-    font-weight: 500;
-    font-size: 11pt;
-}
 main>h2 {
     width: 100%;
     display: flex;
