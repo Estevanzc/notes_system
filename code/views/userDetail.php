@@ -7,7 +7,7 @@
         <section id="user_detail">
             <div id="page_title">
                 <div>
-                    <a href="users.php" id="return_btn">
+                    <a href="<?php echo($_SESSION["user"]->getLevel() == 2 ? "users" : "index")?>.php" id="return_btn">
                         <i class="fa-solid fa-arrow-left"></i>
                         <h3>Voltar</h3>
                     </a>
@@ -37,7 +37,7 @@
                         <?php echo(str_replace(' ', '', $user->getDescription()) == "" || empty($user->getDescription()) ? "" : "<p><strong>Sobre:</strong></p><p>".$user->getDescription()."</p>")?>
                     </div>
                     <div id="account_navigate">
-                        <a href="userForm.php?id=<?php echo($user->getId())?>" id="edit_btn">
+                        <a href="user.php?page_type=0&id=<?php echo($user->getId())?>" id="edit_btn">
                             <i class="fa-solid fa-pen"></i>
                             <p>Editar dados</p>
                         </a>

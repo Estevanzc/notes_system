@@ -65,9 +65,7 @@ CREATE TABLE `users` (
   `photo` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`),
-  UNIQUE KEY `password` (`password`),
-  UNIQUE KEY `login_2` (`login`),
-  UNIQUE KEY `pass` (`password`)
+  UNIQUE KEY `login_2` (`login`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

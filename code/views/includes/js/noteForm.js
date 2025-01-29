@@ -27,10 +27,10 @@ function remind_date(element) {
     if (element.children[0].classList.contains("toggle")) {
         element.children[0].classList.remove("toggle")
         element.parentNode.parentNode.children[1].classList.remove("visible")
+        element.parentNode.parentNode.children[1].value = ""
     } else {
         element.children[0].classList.add("toggle")
         element.parentNode.parentNode.children[1].classList.add("visible")
-        element.parentNode.parentNode.children[1].value = ""
     }
     
 }

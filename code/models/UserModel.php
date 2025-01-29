@@ -3,6 +3,8 @@
 namespace Model;
 
 use Model\VO\UserVO;
+use Model\NoteModel;
+use Model\VO\NoteVO;
 
 final class UserModel extends Model {
 
@@ -47,8 +49,8 @@ final class UserModel extends Model {
             "password" => md5($vo->getPassword()),
             "name" => $vo->getName(),
             "entry_date" => $vo->getEntry_date(),
-            "description" => $vo->getDescription(),
-            "level" => $vo->getLevel(),
+            "description" => "",
+            "level" => 1,
         ];
         if (!empty($vo->getPhoto())) {
             $binds["photo"] = $vo->getPhoto();
@@ -59,20 +61,18 @@ final class UserModel extends Model {
 
     public function update($vo) {
         $db = new Connection();
-        $query = "UPDATE users SET login=:login,".(empty($vo->getPassword()) ? "" : " password=:password,")." , name=:name, entry_date=:entry_date, description=:description, level=:level".(empty($vo->getPhoto()) ? "" : ", photo=:photo")." WHERE id = :id";
+        $query = "UPDATE users SET login=:login, name=:name, description=:description".($vo->getLevel() == 0 ? "" : ", level=:level")."".($vo->getPhoto() == 0 ? "" : ", photo=:photo")." WHERE id = :id";
         $binds = [
             "id" => $vo->getId(),
             "login" => $vo->getLogin(),
             "name" => $vo->getName(),
-            "entry_date" => $vo->getEntry_date(),
             "description" => $vo->getDescription(),
-            "level" => $vo->getLevel(),
         ];
-        if (!empty($vo->getPhoto())) {
+        if ($vo->getPhoto() != 0) {
             $binds["photo"] = $vo->getPhoto();
         }
-        if (!empty($vo->getPassword())) {
-            $binds["password"] = md5($vo->getPassword());
+        if ($vo->getLevel() != 0) {
+            $binds["level"] = $vo->getLevel();
         }
 
         return $db->execute($query, $binds);
@@ -80,8 +80,11 @@ final class UserModel extends Model {
 
     public function delete($vo) {
         $db = new Connection();
-        $query = "DELETE FROM users WHERE login = :login";
-        $binds = ["login" => $vo->getLogin()];
+        $query = "DELETE FROM users WHERE id = :id";
+        $binds = ["id" => $vo->getId()];
+        $note_vo = new NoteVO(null, null, null, null, null, $vo->getId());
+        $note_model = new NoteModel();
+        $note_result = $note_model->delete_by_user($note_vo);
 
         return $db->execute($query, $binds);
     }

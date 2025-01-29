@@ -59,7 +59,7 @@ final class NoteModel extends Model {
             "description" => $vo->getDescription(),
             "create_date" => $vo->getCreate_date(),
             "remind_date" => $vo->getRemind_date(),
-            "user_id" => $vo->getUser_id(),
+            "user_id" => (int) $_SESSION["user"]->getId(),
         ];
 
         return $db->execute($query, $binds);
@@ -67,14 +67,12 @@ final class NoteModel extends Model {
 
     public function update($vo) {
         $db = new Connection();
-        $query = "UPDATE notes SET title=:title, description=:description, create_date=:create_date, remind_date=:remind_date, user_id=:user_id WHERE id = :id";
+        $query = "UPDATE notes SET title=:title, description=:description, remind_date=:remind_date WHERE id = :id";
         $binds = [
             "id" => $vo->getId(),
             "title" => $vo->getTitle(),
             "description" => $vo->getDescription(),
-            "create_date" => $vo->getCreate_date(),
             "remind_date" => $vo->getRemind_date(),
-            "user_id" => $vo->getUser_id(),
         ];
 
         return $db->execute($query, $binds);
@@ -84,6 +82,14 @@ final class NoteModel extends Model {
         $db = new Connection();
         $query = "DELETE FROM notes WHERE id = :id";
         $binds = ["id" => $vo->getId()];
+
+        return $db->execute($query, $binds);
+    }
+
+    public function delete_by_user($vo) {
+        $db = new Connection();
+        $query = "DELETE FROM notes WHERE user_id = :user_id";
+        $binds = ["user_id" => $vo->getUser_id()];
 
         return $db->execute($query, $binds);
     }

@@ -23,18 +23,18 @@
                 <form action="userSave.php" method="post" enctype="multipart/form-data">
                     <div id="name_input">
                         <label for="name">Insira seu nome</label>
-                        <input type="text" onkeyup="change_name(this)" name="name" id="name" value="golden_turtle">
+                        <input type="text" onkeyup="change_name(this)" name="name" id="name" class="input_verifyer" value="golden_turtle">
                         <p class="input_err">asdasd</p>
                     </div>
                     <div id="email_input">
                         <label for="login">Insira seu email</label>
-                        <input type="email" name="login" id="login">
+                        <input type="email" name="login" id="login" class="input_verifyer">
                         <p class="input_err">asdasd</p>
                     </div>
                     <div id="password_input">
                         <label for="password_ipt">Insira sua senha</label>
                         <div id="password" onclick="input_focus(this)">
-                            <input type="password" onblur="input_blur(this)" name="password" id="password_ipt">
+                            <input type="password" onblur="input_blur(this)" name="password" id="password_ipt" class="input_verifyer">
                             <div id="pass_btn" onclick="pass_visibility(this)"><i class="fa-solid fa-eye-slash"></i></div>
                         </div>
                         <p class="input_err">asdadasads</p>
@@ -54,7 +54,7 @@
                     <input type="hidden" id="level" name="level" value="1">
                     <input type="hidden" id="entry_date" name="entry_date" value="">
                     <div id="submit_btn">
-                        <button type="submit">Salvar</button>
+                        <button type="button" onclick="logon_verifyer()">Salvar</button>
                     </div>
                 </form>
                 <section id="profile_simulation">
@@ -76,5 +76,7 @@
     </div>
     <script src="views/includes/js/logon.js"></script>
     <script src="views/includes/js/cursor_interaction.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="views/includes/js/form_verifyer.js"></script>
 </body>
 </html>

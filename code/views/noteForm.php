@@ -44,8 +44,8 @@
                         <input type="date" id="remind_date" name="remind_date" onblur="remind_blur(this)" class="<?php echo(!empty($remind_date) ? "visible" : "")?>" value="<?php echo($remind_date)?>">
                     </div>
                     <input type="hidden" id="id" name="id" value="<?php echo($note->getId())?>">
-                    <input type="hidden" id="create_date" name="create_date" value="<?php echo($note->getCreate_date())?>">
-                    <input type="hidden" id="user_id" name="user_id" value="<?php echo($note->getUser_id())?>">
+                    <input type="hidden" id="create_date" name="create_date" value="<?php echo(isset($_GET["id"]) ? $note->getCreate_date() : date("Y-m-d"))?>">
+                    <input type="hidden" id="user_id" name="user_id" value="<?php echo($_SESSION["user"]->getId())?>">
                     <div id="form_navigate">
                         <div <?php
                         if (!$isEmpty) {

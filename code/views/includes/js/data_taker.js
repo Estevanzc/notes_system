@@ -3,6 +3,3 @@ async function data_taker(request_type = 0, filter = [], require_login = 0) {
     data = await data.json()
     return data
 }
-/*
-filter = ["asdasdasd", 0, 0]
-*/

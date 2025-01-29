@@ -34,10 +34,15 @@ final class NoteController extends Controller {
             ]);
         } else if (!empty($id) && $note->getUser_id() != $_SESSION["user"]->getId()) {
             $this->redirect("index.php");
+            exit();
         }
     }
 
     public function save() {
+        if (((int) $_POST["user_id"]) != $_SESSION["user"]->getId()) {
+            $this->redirect("index.php");
+            exit();
+        }
         $id = $_POST["id"];
         $model = new NoteModel();
         $vo = new NoteVO($id, $_POST["title"], $_POST["description"], $_POST["create_date"], $_POST["remind_date"], $_POST["user_id"]);
@@ -54,10 +59,14 @@ final class NoteController extends Controller {
     public function remove() {
         $vo = new NoteVO($_GET["id"]);
         $model = new NoteModel();
+        $note = $model->selectOne($vo);
+        if ($_SESSION["user"]->getLevel() < 2 && $_SESSION["user"]->getId() != $note->getUser_id()) {
+            $this->redirect("index.php");
+            exit();
+        }
 
         $result = $model->delete($vo);
 
         $this->redirect("notes.php");
     }
-
 }

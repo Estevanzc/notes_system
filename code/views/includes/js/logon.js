@@ -40,8 +40,17 @@ function del_btn(element, event) {
 function del_profile(element) {
     element.style.display = "none"
     element.style.opacity = 0
-    element.parentNode.children[1].value = null
-    profile_img.style.backgroundImage = `url(../uploads/default_profile.png)`
+    element.parentNode.removeChild(element.parentNode.children[1])
+    var input = document.createElement("input")
+    input.setAttribute("type", "file")
+    input.setAttribute("accept", ".png, .jpg, .jpeg")
+    input.id = "photo"
+    input.name = "photo"
+    input.addEventListener("change", function() {
+        del_btn(this, event)
+    })
+    element.parentNode.appendChild(input)
+    profile_img.style.backgroundImage = `url(uploads/default_profile.png)`
 }
 function change_name(element) {
     profile_name.innerText = element.value

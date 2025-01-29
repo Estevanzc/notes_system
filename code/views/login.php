@@ -22,13 +22,13 @@
             <form action="fazerLogin.php" method="post">
                 <div id="email_input">
                     <label for="login">Insira seu email</label>
-                    <input type="email" name="login" id="login">
+                    <input type="email" name="login" id="login" class="input_verifyer">
                     <p class="input_err">asdasd</p>
                 </div>
                 <div id="password_input">
                     <label for="password_ipt">Insira sua senha</label>
                     <div id="password">
-                        <input type="password" name="password" id="password_ipt">
+                        <input type="password" name="password" id="password_ipt" class="input_verifyer">
                         <div id="pass_btn" onclick="pass_visibility(this)"><i class="fa-solid fa-eye-slash"></i></div>
                     </div>
                     <p class="input_err">asdadasads</p>
@@ -41,7 +41,7 @@
                     <div>Não possui uma conta ? <a href="user.php?page_type=1">Crie uma</a></div>
                 </nav>
                 <div id="submit_btn">
-                    <button type="submit">Entrar</button>
+                    <button type="button" onclick="login_verifyer()">Entrar</button>
                 </div>
             </form>
         </main>
@@ -51,5 +51,7 @@
     </div>
     <script src="views/includes/js/login.js"></script>
     <script src="views/includes/js/cursor_interaction.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="views/includes/js/form_verifyer.js"></script>
 </body>
 </html>
