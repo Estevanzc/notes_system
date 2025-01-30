@@ -18,6 +18,7 @@ function users_creater() {
         a.setAttribute("href", `userData.php?id=${user.id}`)
         a.dataset.user_id = user.id - 1
         a.className = "user"
+        a.style.backgroundImage = `url(uploads/${user.photo == null ? "default_profile.png" : user.photo})`
         a.addEventListener("mouseenter", function() {
             mouse_enter(this)
         })

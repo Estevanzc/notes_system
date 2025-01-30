@@ -19,7 +19,7 @@
             <main>
                 <div id="user_account">
                     <div id="personal_data">
-                        <div><img id="account_img" src="uploads/estevan.png" alt=""></div>
+                        <div><div id="account_img" style="background-image: url(uploads/<?php echo(empty($user->getPhoto()) ? "default_profile.png" : $user->getPhoto())?>);"></div></div>
                         <div>
                             <div>
                                 <h4 id="account_name"><?php echo($user->getName())?></h4>

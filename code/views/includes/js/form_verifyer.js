@@ -9,10 +9,9 @@ async function data_taker(require_login = 0) {
 data_taker()
 function logon_verifyer() {
     var submit_value = true
-    var login = input_verifyer[1]
-    var password = input_verifyer[2]
-    var name = input_verifyer[0]
-    console.log(name.parentNode);
+    var login = document.getElementById("login")
+    var name = document.getElementById("name")
+    var password = document.getElementsByName("password")[0] ? document.getElementsByName("password")[0] : false
     if (name.value.replace(/ /g, "") == "") {
         name.style.borderColor = "rgb(205, 68, 68) !important"
         name.parentNode.children[2].innerHTML = "Campo obrigatório vazio"
@@ -24,10 +23,23 @@ function logon_verifyer() {
     }
     var user = users.find(value => value.login == login.value)
     if (user) {
-        login.style.borderColor = "rgb(205, 68, 68) !important"
-        login.parentNode.children[2].innerHTML = "Login já em uso"
-        login.parentNode.children[2].style.opacity = 1
-        submit_value = false
+        if (password) {
+            login.style.borderColor = "rgb(205, 68, 68) !important"
+            login.parentNode.children[2].innerHTML = "Login já em uso"
+            login.parentNode.children[2].style.opacity = 1
+            submit_value = false
+        } else {
+            var user_by_id = users.find(value => value.id == Number(document.getElementById("id").value))
+            if (user_by_id.login != login.value) {
+                login.style.borderColor = "rgb(205, 68, 68) !important"
+                login.parentNode.children[2].innerHTML = "Login já em uso"
+                login.parentNode.children[2].style.opacity = 1
+                submit_value = false
+            } else {
+                login.style.borderColor = "#acacac !important"
+                login.parentNode.children[2].style.opacity = 0
+            }
+        }
     } else if (Number(login.value.replace(/ /g, "").length) < 11 || login.value.replace(/ /g, "").match(/@gmail.com/g) == "") {
         login.style.borderColor = "rgb(205, 68, 68) !important"
         login.parentNode.children[2].innerHTML = "Campo obrigatório incorreto"
@@ -37,15 +49,17 @@ function logon_verifyer() {
         login.style.borderColor = "#acacac !important"
         login.parentNode.children[2].style.opacity = 0
     }
-    if (password.value.replace(/ /g, "") == "") {
-        password.parentNode.parentNode.children[2].innerHTML = "Campo obrigatório vazio"
-        password.parentNode.parentNode.children[2].style.opacity = 1
-        password.style.borderColor = "rgb(205, 68, 68) !important"
-        submit_value = false
-    } else {
-        password.parentNode.parentNode.children[2].style.opacity = 0
-        password.style.borderColor = "#acacac !important"
-    }    
+    if (password) {
+        if (password.value.replace(/ /g, "") == "") {
+            password.parentNode.parentNode.children[2].innerHTML = "Campo obrigatório vazio"
+            password.parentNode.parentNode.children[2].style.opacity = 1
+            password.style.borderColor = "rgb(205, 68, 68) !important"
+            submit_value = false
+        } else {
+            password.parentNode.parentNode.children[2].style.opacity = 0
+            password.style.borderColor = "#acacac !important"
+        }
+    }
     if (submit_value) {
         form.submit()
     }

@@ -43,17 +43,18 @@ final class NoteController extends Controller {
             $this->redirect("index.php");
             exit();
         }
-        $id = $_POST["id"];
+        $id = $_POST["id"] ?? 0;
         $model = new NoteModel();
-        $vo = new NoteVO($id, $_POST["title"], $_POST["description"], $_POST["create_date"], $_POST["remind_date"], $_POST["user_id"]);
 
         if(empty($id)) {
+            $vo = new NoteVO($id, $_POST["title"], $_POST["description"], $_POST["create_date"], $_POST["remind_date"], (int) $_SESSION["user"]->getId());
             $result = $model->insert($vo);
         } else {
+            $vo = new NoteVO($id, $_POST["title"], $_POST["description"], "", $_POST["remind_date"], "");
             $result = $model->update($vo);
         }
 
-        $this->redirect("notes.php");
+        $this->redirect("index.php");
     }
 
     public function remove() {
@@ -67,6 +68,6 @@ final class NoteController extends Controller {
 
         $result = $model->delete($vo);
 
-        $this->redirect("notes.php");
+        $this->redirect("index.php");
     }
 }

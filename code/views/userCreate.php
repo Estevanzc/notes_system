@@ -37,7 +37,7 @@
                             <input type="password" onblur="input_blur(this)" name="password" id="password_ipt" class="input_verifyer">
                             <div id="pass_btn" onclick="pass_visibility(this)"><i class="fa-solid fa-eye-slash"></i></div>
                         </div>
-                        <p class="input_err">asdadasads</p>
+                        <p class="input_err">asdasd</p>
                     </div>
                     <div id="photo_input">
                         <label for="photo">Insira sua imagem de perfil</label>

@@ -1,13 +1,13 @@
-<?php require_once("views/includes/html/head.html");?>
+<?php
+require_once("views/includes/html/head.html");
+$isEmpty = empty($note->getId());
+?>
     <title><?php echo($isEmpty ? "Crie" : "Edite")?> sua nota - Notes System</title>
     <link rel="stylesheet" href="views/includes/css/noteForm.css">
 </head>
 <body onscroll="scroll_event(this)">
     <div id="page_background">
         <?php require_once("views/includes/html/menu.php");?>
-        <?php
-        $isEmpty = empty($note->getId());
-        ?>
         <section id="note_form">
             <div id="page_title">
                 <div>
@@ -33,16 +33,17 @@
                         <div>
                             <?php
                             $remind_date = $note->getRemind_date();
+                            $noteEmpty = !empty($remind_date) && $remind_date != "0000-00-00"
                             ?>
-                            <input type="checkbox" name="remind_checkbox" id="remind_checkbox" <?php echo(!empty($remind_date) ? "checked" : "")?>>
+                            <input type="checkbox" name="remind_checkbox" id="remind_checkbox" <?php echo($noteEmpty ? "checked" : "")?>>
                             <label for="remind_checkbox" onclick="remind_date(this)">
-                                <div id="toggle_switch" class="<?php echo(!empty($remind_date) ? "toggle" : "")?>">
+                                <div id="toggle_switch" class="<?php echo($noteEmpty ? "toggle" : "")?>">
                                     <div></div>
                                 </div>
                                 <p>Adicionar data de lembrete</p>
                             </label>
                         </div>
-                        <input type="date" id="remind_date" name="remind_date" onblur="remind_blur(this)" class="<?php echo(!empty($remind_date) ? "visible" : "")?>" value="<?php echo($remind_date)?>">
+                        <input type="date" id="remind_date" name="remind_date" onblur="remind_blur(this)" class="<?php echo($noteEmpty ? "visible" : "")?>" value="<?php echo($remind_date)?>">
                     </div>
                     <input type="hidden" id="id" name="id" value="<?php echo($note->getId())?>">
                     <input type="hidden" id="create_date" name="create_date" value="<?php echo(isset($_GET["id"]) ? $note->getCreate_date() : date("Y-m-d"))?>">

@@ -53,12 +53,12 @@ final class NoteModel extends Model {
 
     public function insert($vo) {
         $db = new Connection();
-        $query = "INSERT INTO notes VALUES (default, :title, :description, :create_date, :remind_date, :user_id";
+        $query = "INSERT INTO notes VALUES (default, :title, :description, :create_date, :remind_date, :user_id)";
         $binds = [
             "title" => $vo->getTitle(),
             "description" => $vo->getDescription(),
             "create_date" => $vo->getCreate_date(),
-            "remind_date" => $vo->getRemind_date(),
+            "remind_date" => empty($vo->getRemind_date()) ? null : $vo->getRemind_date(),
             "user_id" => (int) $_SESSION["user"]->getId(),
         ];
 

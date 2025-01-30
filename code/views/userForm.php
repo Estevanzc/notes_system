@@ -43,30 +43,15 @@
                             <div id="user_data">
                                 <div id="account_name">
                                     <label for="name">Seu nome</label>
-                                    <input type="text" name="name" id="name" value="<?php echo($user->getName())?>">
+                                    <input type="text" name="name" id="name" value="<?php echo($user->getName())?>" class="input_verifyer">
+                                    <p class="input_err">asdadasads</p>
                                 </div>
                                 <div id="account_login">
                                     <label for="login">Seu login</label>
-                                    <input type="email" name="login" id="login" value="<?php echo($user->getLogin())?>">
+                                    <input type="email" name="login" id="login" value="<?php echo($user->getLogin())?>" class="input_verifyer">
+                                    <p class="input_err">asdadasads</p>
                                 </div>
                             </div>
-                            <?php
-                            if ($_SESSION["user"]->getLevel() == 2) {
-                                echo("
-                                <div id=\"user_level\">
-                                    <label for=\"level\">Nível de Acesso:</label>
-                                    <select name=\"level\" id=\"level\">
-                                        <option value=\"1\" ".($user->getLevel() == 1 ? "selected" : "").">Cliente</option>
-                                        <option value=\"2\" ".($user->getLevel() == 2 ? "selected" : "").">Admin</option>
-                                    </select>
-                                </div>
-                                ");
-                            } else {
-                                echo("
-                                <p id=\"account_level\"><strong>Nível de Acesso:</strong> Cliente</p>
-                                ");
-                            }
-                            ?>
                         </div>
                     </div>
                     <div id="account_data">
@@ -74,6 +59,21 @@
                         <?php
                         $month_name = ["jan","fev","mar","abr","mai","jun","jul","ago","set","oct","nov","dec"][((int) substr($user->getEntry_date(), 5, 2))-1];
                         echo("Desde ".((int)substr($user->getEntry_date(), 8, 2)).", $month_name de ".substr($user->getEntry_date(), 0, 4));
+                        if ($_SESSION["user"]->getLevel() == 2) {
+                            echo("
+                            <div id=\"user_level\">
+                                <label for=\"level\">Nível de Acesso:</label>
+                                <select name=\"level\" id=\"level\">
+                                    <option value=\"1\" ".($user->getLevel() == 1 ? "selected" : "").">Cliente</option>
+                                    <option value=\"2\" ".($user->getLevel() == 2 ? "selected" : "").">Admin</option>
+                                </select>
+                            </div>
+                            ");
+                        } else {
+                            echo("
+                            <p id=\"account_level\"><strong>Nível de Acesso:</strong> Cliente</p>
+                            ");
+                        }
                         ?>
                         </p>
                     </div>
@@ -82,12 +82,8 @@
                         <textarea name="description" id="description"><?php echo($user->getDescription())?></textarea>
                     </div>
                     <div id="account_navigate">
-                        <a href="userData.php?id=<?php echo($user->getId())?>" id="cancel_btn">
-                            <p>Cancelar</p>
-                        </a>
-                        <button type="submit" id="confirm_btn">
-                            <p>Salvar</p>
-                        </button>
+                        <a href="userData.php?id=<?php echo($user->getId())?>" id="cancel_btn">Cancelar</a>
+                        <button type="button" id="confirm_btn" onclick="logon_verifyer()">Salvar</button>
                     </div>
                 </form>
             </main>
@@ -103,5 +99,7 @@
     <script src="views/includes/js/userForm.js"></script>
     <script src="views/includes/js/menu.js"></script>
     <script src="views/includes/js/scroll_event.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="views/includes/js/form_verifyer.js"></script>
 </body>
 </html>

@@ -47,26 +47,33 @@ final class UserController extends Controller {
     }
 
     public function save() {
-        $id = $_POST["id"];
+        $id = $_POST["id"] ?? 0;
         $model = new UserModel();
         $nome_arquivo = 0;
-        $user_old_photo = $model->selectOne(new UserVO($id))->getPhoto();
-        if (((int)$_POST["change_photo"]) == 1) {
-            $nome_arquivo = empty($_FILES["photo"]["name"]) ? null : $this->uploadFile($_FILES["photo"], (empty($user_old_photo) ? "" : $user_old_photo));
-        }
-        $vo = new UserVO($id, $_POST["login"], $_POST["password"], $_POST["name"], $_POST["entry_date"], $_POST["description"], ($_SESSION["user"]->getLevel() == 2 ? $_POST["level"] : 0), $nome_arquivo);
 
         if(empty($id)) {
+            $nome_arquivo = empty($_FILES["photo"]["name"]) ? null : $this->uploadFile($_FILES["photo"], "");
+            $vo = new UserVO($id, $_POST["login"], $_POST["password"], $_POST["name"], $_POST["entry_date"], "", 1, $nome_arquivo);
             $result = $model->insert($vo);
         } else {
             if ($_SESSION["user"]->getLevel() < 2 && $_SESSION["user"]->getId() != $_POST["id"] || !isset($_SESSION["user"])) {
                 $this->redirect("index.php");
                 exit();
             }
+            $user_old_photo = $model->selectOne(new UserVO($id))->getPhoto();
+            $user_old_photo = empty($user_old_photo) ? "" : $user_old_photo;
+            if (((int)$_POST["change_photo"]) == 1) {
+                $nome_arquivo = empty($_FILES["photo"]["name"]) ? null : $this->uploadFile($_FILES["photo"], (empty($user_old_photo) ? "" : $user_old_photo));
+            }
+            $vo = new UserVO($id, $_POST["login"], $_POST["password"], $_POST["name"], $_POST["entry_date"], $_POST["description"], ($_SESSION["user"]->getLevel() == 2 ? $_POST["level"] : 0), $nome_arquivo);
             $result = $model->update($vo);
         }
 
-        $this->redirect("users.php");
+        if (isset($_SESSION["user"])) {
+            $this->redirect($id == $_SESSION["user"]->getId() ? "userData.php?id=$id" : "users.php");
+        } else {
+            $this->redirect("index.php");
+        }
     }
 
     public function remove() {
@@ -77,7 +84,8 @@ final class UserController extends Controller {
         $vo = new UserVO($_GET["id"]);
         $model = new UserModel();
         $vo = $model->selectOne($vo);
-
+        $this->deleteFile($vo->getPhoto());
+        
         $result = $model->delete($vo);
 
         $this->redirect("users.php");
