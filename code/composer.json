@@ -4,5 +4,8 @@
             "Model\\": "models/",
             "Controller\\": "controllers/"
         }
+    },
+    "require": {
+        "symfony/mailer": "^7.2"
     }
 }

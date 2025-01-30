@@ -1,5 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
-    <title>Edite a <?php echo($user->getId() == $_SESSION["user"]->getId() ? "sua " : "")?>conta</title>
+    <title>Edite a <?php echo($user->getId() == $_SESSION["user"]->getId() ? "sua " : "")?>conta - Notes System</title>
     <link rel="stylesheet" href="views/includes/css/userForm.css">
 </head>
 <body onscroll="scroll_event(this)">

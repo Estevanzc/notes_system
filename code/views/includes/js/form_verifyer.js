@@ -12,6 +12,7 @@ function logon_verifyer() {
     var login = document.getElementById("login")
     var name = document.getElementById("name")
     var password = document.getElementsByName("password")[0] ? document.getElementsByName("password")[0] : false
+    var email_pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (name.value.replace(/ /g, "") == "") {
         name.style.borderColor = "rgb(205, 68, 68) !important"
         name.parentNode.children[2].innerHTML = "Campo obrigatório vazio"
@@ -40,7 +41,7 @@ function logon_verifyer() {
                 login.parentNode.children[2].style.opacity = 0
             }
         }
-    } else if (Number(login.value.replace(/ /g, "").length) < 11 || login.value.replace(/ /g, "").match(/@gmail.com/g) == "") {
+    } else if (Number(login.value.replace(/ /g, "").length) < 11 || !email_pattern.test(login.value.replace(/ /g, ""))) {
         login.style.borderColor = "rgb(205, 68, 68) !important"
         login.parentNode.children[2].innerHTML = "Campo obrigatório incorreto"
         login.parentNode.children[2].style.opacity = 1

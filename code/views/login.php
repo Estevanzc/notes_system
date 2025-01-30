@@ -39,6 +39,7 @@
                 </div>
                 <nav>
                     <div>Não possui uma conta ? <a href="user.php?page_type=1">Crie uma</a></div>
+                    <a href="mailer.php">Esqueci minha senha</a>
                 </nav>
                 <div id="submit_btn">
                     <button type="button" onclick="login_verifyer()">Entrar</button>

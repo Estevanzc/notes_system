@@ -230,6 +230,10 @@ nav {
 }
 nav a {
     font-weight: bold;
+    color: #1c65c5;
+}
+nav a:hover {
+    color: #3881e1;
 }
 #photo_input {
     height: 70px;

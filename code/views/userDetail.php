@@ -1,5 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
-    <title>Informações da <?php echo($user->getLevel() == $_SESSION["user"]->getLevel() ? "sua " : "");?>conta</title>
+    <title>Informações da <?php echo($user->getLevel() == $_SESSION["user"]->getLevel() ? "sua " : "");?>conta - Notes System</title>
     <link rel="stylesheet" href="views/includes/css/userDetail.css">
 </head>
 <body onscroll="scroll_event(this)">

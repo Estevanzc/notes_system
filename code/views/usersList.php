@@ -1,5 +1,5 @@
 <?php require_once("views/includes/html/head.html");?>
-    <title>Lista de Usuários</title>
+    <title>Lista de Usuários - Notes System</title>
     <link rel="stylesheet" href="views/includes/css/usersList.css">
 </head>
 <body onscroll="scroll_event(this)">
